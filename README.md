@@ -25,6 +25,10 @@ Week of February 4th: Planning of application components
  - Server (Node), GUI (JQuery), Database (MongoDB)
  - Explore APIs
  - Discuss choices with TA
+
+Week of February 11th: Arcitechture Diagram & external library/program use
+
+Week of February 18th: Winter Break
  
 Week of February 25th: Framework Demo
  - Server running
