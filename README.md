@@ -1,17 +1,16 @@
 MasonLiu
 ========
 
-**Project Name**: PictureHub
+Project Name: PictureHub
+Team Members: Nigel Mason, Bo Liu
 
-**Team Members**: Nigel Mason, Bo Liu
-
-**Description**:
+Description:
 
 PictureHub is an application that allows registered users to upload pictures
 and associate them with a category. Users can browse pictures by category 
-(e.g. funny, sports, animals, etc.) as well as add other users as "friends" 
+(e.g. funny, sports, animals, etc.) as well as add other users as “friends” 
 in order to be updated when their friends upload new pictures. When an album 
-or category is selected, the "album viewer" will appear, which is an isolated 
+or category is selected, the “album viewer” will appear, which is an isolated 
 window that enlarges the current image, and allows the user to move backward or 
 forward through the album/category. Users can comment on an individual picture, 
 and attach a timer to their own pictures that can count down to or up from a significant 
@@ -20,7 +19,7 @@ account information and the pictures themselves. The web server will facilitate 
 authentication and content retrieval, and the client will facilitate navigation through 
 the application.
 
-**Milestones**:
+Milestones:
 
 Week of February 4th: Planning of application components
  - Server (Node), GUI (JQuery), Database (MongoDB)
