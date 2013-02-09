@@ -1,10 +1,11 @@
 MasonLiu
 ========
 
-Project Name: PictureHub
-Team Members: Nigel Mason, Bo Liu
+**Project Name**: PictureHub
 
-Description:
+**Team Members**: Nigel Mason, Bo Liu
+
+**Description**:
 
 PictureHub is an application that allows registered users to upload pictures
 and associate them with a category. Users can browse pictures by category 
@@ -19,7 +20,7 @@ account information and the pictures themselves. The web server will facilitate 
 authentication and content retrieval, and the client will facilitate navigation through 
 the application.
 
-Milestones:
+**Milestones**:
 
 Week of February 4th: Planning of application components
  - Server (Node), GUI (JQuery), Database (MongoDB)
