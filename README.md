@@ -9,7 +9,7 @@ MasonLiu
 
 PictureHub is an application that allows registered users to upload pictures
 and associate them with a category. Users can browse pictures by category 
-(e.g. funny, sports, animals, etc.) as well as add other users as �friends� 
+(e.g. funny, sports, animals, etc.) as well as add other users as "friends" 
 in order to be updated when their friends upload new pictures. When an album 
 or category is selected, the "album viewer" will appear, which is an isolated 
 window that enlarges the current image, and allows the user to move backward or 
@@ -53,5 +53,7 @@ Week of March 25th: Draft Documentation
 Week of April 1st: Final code and documentation
 
 Week of April 8th: "Safety net"
+
+
 
 
