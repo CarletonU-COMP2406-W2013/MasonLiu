@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}!!!
+	form#upload-form(action="/upload", method="post")
+		button(type="submit") Upload picture
