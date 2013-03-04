@@ -1,7 +1,24 @@
 extends layout
 
 block content
-	h2 Album Viewer
-	p Here is your picture:
-	br
-	//-img(src="/pic")
+	div(class="container-narrow")
+		h3 Upload a picture
+		div(class="offset1", id="uploadFormContainer")
+			form(class="form-horizontal")
+				div(class="control-group")
+					label(class="control-label") Choose a picture to upload
+					button(type="button", class="btn offset1") Select file
+				div(class="control-group")
+					label(class="control-label") Which categories should this picture be in?
+					div(class="controls")
+						label(class="checkbox") Funny
+							input(type="checkbox")
+						label(class="checkbox") Sports
+							input(type="checkbox")
+						label(class="checkbox") Nature
+							input(type="checkbox")
+						label(class="checkbox") People
+							input(type="checkbox")
+						label(class="checkbox") Art
+							input(type="checkbox")
+				button(type="submit", class="btn offset1") Submit

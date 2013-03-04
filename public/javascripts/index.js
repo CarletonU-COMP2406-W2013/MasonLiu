@@ -2,6 +2,12 @@ var querystring = require("querystring"),
 	fs = require("fs"),
 	formidable = require("formidable");
 
+$(document).ready(function() {
+	$('.carousel').carousel({
+		interval: false
+	});
+});
+	
 var FrontPage = (function(FrontPage, $, undefined){
 
 	//functions passed directly into $ will run when document is ready
