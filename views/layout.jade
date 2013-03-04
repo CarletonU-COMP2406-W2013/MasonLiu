@@ -9,10 +9,24 @@ html
 		script(src="/libs/jquery-ui/js/jquery-ui-1.10.0.custom.min.js")
 		script(src="javascripts/index.js")
 		link(rel="stylesheet", type="text/css",
-			href="libs/bootstrap/css/bootstrap.min.css")		
+			href="libs/bootstrap/css/bootstrap.min.css")
+		link(rel="stylesheet", type="text/css",
+			href="libs/bootstrap/css/bootstrap-responsive.min.css")
 		link(rel="stylesheet", type="text/css",
 			href="libs/jquery-ui/css/ui-lightness/jquery-ui-1.10.0.custom.min.css")
 		link(rel="stylesheet", type="text/css",
 			href="stylesheets/style.css")
 	body
+		div(class="navbar navbar-fixed-top")
+			div(class="navbar-inner")
+				div(class="container")
+					a(class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
+						span(class="icon-bar")
+						span(class="icon-bar")
+						span(class="icon-bar")
+					a(class="brand", href="/") PictureHub
+					div(class="nav-collapse")
+						ul(class="nav pull-right")
+							li(class="active")
+								a(href="/home") Home
 		block content
