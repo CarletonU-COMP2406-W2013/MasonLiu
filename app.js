@@ -28,9 +28,17 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+/* route GET requests */
 app.get('/', routes.index);
+app.get('/home', routes.home);
 app.get('/users', user.list);
 
+/* route POST requests */
+app.post('/', routes.index);
+app.post('/viewer', routes.viewer);
+app.post('/home', routes.home);
+app.post('/myAccount', routes.myacct);
+app.post('/register', routes.register);
 app.post('/upload', routes.upload);
 
 http.createServer(app).listen(app.get('port'), function(){
