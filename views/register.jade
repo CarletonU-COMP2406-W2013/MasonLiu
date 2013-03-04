@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	body
+	div(class="container-narrow")
+		h3(class="pull-left") Make an account. Upload awesome pictures. It's as simple as that.
+		div(class="offset1", id="registerFormContainer")
+			form(class="form-horizontal")
+				div(class="control-group")
+					label(class="control-label", for="inputUsername") Select a Username
+					div(class="controls")
+						input(type="text", id="inputUsername", placeholder="Username")
+				div(class="control-group")
+					label(class="control-label", for="inputPassword") Select a Password (min. 6 characters)
+					div(class="controls")
+						input(type="password", id="inputPassword", placeholder="Password")
+				div(class="control-group")
+					label(class="control-label", for="inputPassConf") Confirm your Password
+					div(class="controls")
+						input(type="password", id="inputPassConf", placeholder="Password again")
+				div(class="control-group")
+					label(class="control-label") What are your favourite categories? (this step is optional; you can always choose later)
+					div(class="controls")
+						label(class="checkbox") Funny
+							input(type="checkbox")
+						label(class="checkbox") Sports
+							input(type="checkbox")
+						label(class="checkbox") Nature
+							input(type="checkbox")
+						label(class="checkbox") People
+							input(type="checkbox")
+						label(class="checkbox") Art
+							input(type="checkbox")
+				button(type="submit", class="btn offset1") Submit
