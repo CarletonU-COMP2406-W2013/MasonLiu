@@ -2,11 +2,11 @@ extends layout
 
 block content
 	body
-	div(class="container-narrow")
+	div.container-narrow
 		h3 Welcome home!
-		form#myacct-btn(class="offset1", action="/myAccount", method="post")
-					button(class="btn", type="submit") My Account
-		form#logout-btn(class="offset1", action="/", method="post")
-					button(class="btn", type="submit") Log out
-		form#viewer-btn(class="offset1", action="/viewer", method="post")
-					button(class="btn", type="submit") Viewer
+		form#myacct-btn.offset1(action="/myAccount", method="post")
+					button.btn(type="submit") My Account
+		form#logout-btn.offset1(action="/logout", method="post")
+					button.btn(type="submit") Log out
+		form#viewer-btn.offset1(action="/viewer", method="post")
+					button.btn(type="submit") Viewer
