@@ -1,11 +1,10 @@
 extends layout
 
 block content
-	div(class="container-narrow")
+	div.container-narrow
 		h2 My Account		
 		br	
-		form#upload-btn(class="offset1", action="/upload", method="post")
-			button(type="submit", class="btn") Upload a picture!
-		form#home-btn(class="offset1", action="/home", method="post")
-			button(class="btn", type="submit") Home
-	
+		form#upload-btn.offset1(action="/upload", method="post")
+			button.btn(type="submit") Upload a picture!
+		form#home-btn.offset1(action="/home", method="post")
+			button.btn(type="submit") Home
