@@ -1,38 +1,17 @@
 var mongoose = require('mongoose')
-  , db = require('../db')
-  , session = require('../session')
+  //, db = require('../db')
+  //, session = require('../session')
+  //, bcrypt = require("bcrypt-nodejs")
   , fs = require('fs');
   
-/* var LoginInfo = mongoose.model('LoginInfo'); */
-var PicData = mongoose.model('PicData', PicData);
 var preTitle = "PictureHub - ";
 var latestUpload;
 
 /* front page */
 exports.index = function(req, res){
-  res.render('index', { title: 'PictureHub' });
+  res.render('index', { title: 'PictureHub', error: req.query.error });
 };
 
-/* log in */
-exports.login = function(req, res){
-	console.log("\n== NEW LOGIN == Username: " + req.body.username + ", Password: " + req.body.password);
-	session.login(req, req.body.username);
-	/*new LoginInfo({
-		username: req.body.username,
-		password: req.body.password
-	}).save(function(err){
-		console.log("\n== NEW LOGIN == Username: " + req.body.username + ", Password: " + req.body.password);
-		res.redirect('/home');
-	});*/
-	
-	res.redirect('/home');
-};
-
-/* log out */
-exports.logout = function(req, res){
-	session.logout(req);
-	res.redirect('/');
-};
 
 /* upload form submit */
 exports.uploadFile = function(req, res){
@@ -74,7 +53,7 @@ exports.upload = function(req, res){
 	});
 };
 
-/* login/home page */
+/* home page */
 exports.home = function(req, res){
 	res.render('home', {
 		title: preTitle + 'Home'
@@ -95,12 +74,10 @@ exports.register = function(req, res){
 	});
 };
 
+
 /* viewer */
 exports.viewer = function(req, res){
 	res.render('viewer', {
 		title: preTitle + 'View Album'
 	});
 };
-
-
-

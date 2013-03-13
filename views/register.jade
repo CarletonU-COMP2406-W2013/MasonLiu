@@ -4,15 +4,15 @@ block content
 	div.container-narrow
 		h3.pull-left Make an account. Upload cool pictures. It's as simple as that.
 		div#registerFormContainer.offset1
-			form.form-horizontal
+			form.form-horizontal(action="/registerSubmit", method="post")
 				div.control-group
 					label.control-label(for="inputUsername") Select a Username
 					div.controls
-						input#inputUsername(type="text", placeholder="Username")
+						input#inputUsername(name="username", type="text", placeholder="Username")
 				div.control-group
 					label.control-label(for="inputPassword") Select a Password (min. 6 characters)
 					div.controls
-						input#inputPassword(type="password", placeholder="Password")
+						input#inputPassword(name="password", type="password", placeholder="Password")
 				div.control-group
 					label.control-label(for="inputPassConf") Confirm your Password
 					div.controls
