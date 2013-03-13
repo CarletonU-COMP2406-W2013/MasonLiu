@@ -1,3 +1,6 @@
+
+/* NOTE *** THIS FILE NOT CURRENTLY IN USE */
+
 function login(req, username){    
     req.session.username = username;
 }

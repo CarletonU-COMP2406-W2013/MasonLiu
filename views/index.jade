@@ -1,12 +1,14 @@
 extends layout
 
 block content
+	- if(error)
+		div.alert-error #{error}
 	div.container-narrow
 		div.pull-left
 			h1= title
 			p A truly awesome image collection.
 			img(src="images/cat1.jpg", height="400px", width="400px")
-		
+			
 		div.well.pull-right
 			form#login-form(action="/login", method="post")
 				label
@@ -24,4 +26,4 @@ block content
 				button.btn.btn-primary(type="submit") Login
 		form#register-btn.pull-right(action="/register", method="post")
 			label Want to add to our collection?
-			button.btn(type="submit") Sign up!
+			button.bt(type="submit") Sign up!
