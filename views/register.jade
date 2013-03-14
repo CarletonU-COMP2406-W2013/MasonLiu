@@ -2,6 +2,9 @@ extends layout
 
 block content
 	div.container-narrow
+		- if(error)
+			div.alert.alert-error 
+				strong #{error}
 		h3.pull-left Make an account. Upload cool pictures. It's as simple as that.
 		div#registerFormContainer.offset1
 			form.form-horizontal(action="/registerSubmit", method="post")
@@ -16,7 +19,7 @@ block content
 				div.control-group
 					label.control-label(for="inputPassConf") Confirm your Password
 					div.controls
-						input#inputPassConf(type="password", placeholder="Password again")
+						input#inputPassConf(name="passconf", type="password", placeholder="Password again")
 				div.control-group
 					label.control-label What are your favourite categories? (this step is optional; you can always choose later)
 					div.controls

@@ -1,9 +1,10 @@
 extends layout
 
-block content
-	- if(error)
-		div.alert-error #{error}
+block content	
 	div.container-narrow
+		- if(error)
+			div.alert.alert-error 
+				strong #{error}
 		div.pull-left
 			h1= title
 			p A truly awesome image collection.
@@ -21,7 +22,7 @@ block content
 				div.input-prepend
 					span.add-on
 						i.icon-lock
-					input.span3(type="text", name="password", placeholder="Password")		
+					input.span3(type="password", name="password", placeholder="Password")		
 				br
 				button.btn.btn-primary(type="submit") Login
 		form#register-btn.pull-right(action="/register", method="post")

@@ -13,6 +13,9 @@ a {
 #upload-form {
   clear: left;
 }
+.center-element {
+  text-align: center;
+}
 #registerFormContainer {
   padding-top: 100px;
 }
