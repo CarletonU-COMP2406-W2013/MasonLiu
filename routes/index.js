@@ -5,44 +5,25 @@ var mongoose = require('mongoose')
   , fs = require('fs');
   
 var preTitle = "PictureHub - ";
-var latestUpload;
 
 /* front page */
 exports.index = function(req, res){
   res.render('index', { title: 'PictureHub', error: req.query.error });
 };
 
-
-/* upload form submit */
-exports.uploadFile = function(req, res){
-	console.log(req.body);
-	console.log(req.files);
-	
-	//latestUpload = req.files.uploadedFile.name;
-	// get temporary location of file
-	var tmp_path = req.files.uploadedFile.path;
-	this.latestUpload = tmp_path;
-	// set where file should actually exist (in this case, images directory)
-	var target_path = './public/uploads/' +  req.files.uploadedFile.name;
-	// move the file from the temporary location to the intended location
-	fs.rename(tmp_path, target_path, function(err) {
-		if (err) throw err;
-		// delete the temporary file, so that the explicitly set
-		// temporary upload dir does not get filled with unwanted files
-		fs.unlink(tmp_path, function() {
-			if (err) throw err;
-			//res.render('uploadSuccess', { title: preTitle + 'Upload Successful' });
-			res.redirect('/uploadSuccess');
-			//res.send('File uploaded to: ' + target_path + ' - ' + req.files.thumbnail.size + ' bytes');
-		});
-	});
-	
-};
-
-exports.uploadSuccess = function(req, res){
+/* confirm successful picture upload */
+exports.uploadSuccess = function(req, res, path){
 	res.render('uploadSucc', {
 		title: preTitle + 'Upload Successful',
-		file: this.lastestUpload
+		file: path
+	});
+};
+
+/* confirm successful registration */
+exports.registerSuccess = function(req, res, user){
+	res.render('regSucc', {
+		title: preTitle + 'Registration Successful',
+		username: user
 	});
 };
 
@@ -70,7 +51,8 @@ exports.myacct = function(req, res){
 /* register */
 exports.register = function(req, res){
 	res.render('register', {
-		title: preTitle + 'Sign up'
+		title: preTitle + 'Sign Up',
+		error: req.query.error
 	});
 };
 

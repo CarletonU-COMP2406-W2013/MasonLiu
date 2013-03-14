@@ -1,5 +1,7 @@
 extends layout
 
 block content
-	p We got it!
-	//img(src= file) should show the image that was just uploaded
+	div.container-narrow
+		h4 Your picture was successfully uploaded!
+		div.well.well-small.center-element
+			img.img-polaroid(src="#{file}")
