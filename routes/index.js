@@ -35,13 +35,15 @@ exports.upload = function(req, res){
 };
 
 /* home page */
-exports.home = function(req, res){
+exports.home = function(req, res, imgPath){
+	console.log('imgPath (from routes/index.js): ' + imgPath);
 	res.render('home', {
-		title: preTitle + 'Home'
+		title: preTitle + 'Home',
+		path: imgPath
 	});
 };
 
-/* go to account */
+/* go to account *** NO LONGER IN USE *** */
 exports.myacct = function(req, res){
 	res.render('myacct', {
 		title: preTitle + 'My Account'
@@ -63,3 +65,6 @@ exports.viewer = function(req, res){
 		title: preTitle + 'View Album'
 	});
 };
+
+
+
