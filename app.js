@@ -25,23 +25,28 @@ db.on('error', console.error.bind(console, 'connection error:'));
 //once the DB connection is open...
 db.once('open', function callback () {
 	//Create mongoose Schemas (document structure)
-	var userSchema = mongoose.Schema({
-		username: String,
-		password: String
-	});
+	
 	var PicSchema = mongoose.Schema({
 		filename: String,
-		path: String
+		path: String,
+		srcUser: String,
+		categories: [String]
 	});
 	var AlbumSchema = mongoose.Schema({
 		title: String,
-		pictures: [PicSchema]
+		pictures: [PicSchema],
+		
+	});
+	var userSchema = mongoose.Schema({
+		username: String,
+		password: String,
+		uploads: [PicSchema]
 	});
 	
 	// Convert these schemas into instantiable "model" Classes
-	User = mongoose.model("User", userSchema);
 	Pic = mongoose.model("Pic", PicSchema);
 	Album = mongoose.model("Album", AlbumSchema);
+	User = mongoose.model("User", userSchema);
 });
 
 var app = express();
@@ -84,8 +89,19 @@ app.get('/', function(req, res){
 
 app.get('/home', function(req, res){
 	if(req.session.username){
-		console.log("this sessions user: " + req.session.username);
-		routes.home(req, res);
+		var imgPath;
+		Pic.find({srcUser: req.session.username}, function(err, pics){
+			if (pics.length != 0) // 
+			{
+				var pic = pics[pics.length-1];
+				imgPath = pic.path;
+				console.log("imgPath (from app.js inner): " + imgPath);
+				routes.home(req, res, imgPath);
+			}
+			else routes.home(req, res); // TODO: make home page display something else if no image
+		});
+		console.log("imgPath (from app.js outer): " + imgPath);
+		//routes.home(req, res, imgPath);
 	} else {
 		res.redirect("/");
 	}
@@ -99,12 +115,15 @@ app.get('/register', routes.register);
 app.post('/', routes.index);
 app.post('/viewer', routes.viewer);
 app.post('/home', routes.home);
-app.post('/myAccount', routes.myacct);
+// app.post('/myAccount', routes.myacct);  *** NO LONGER IN USE ***
 app.post('/register', routes.register);
 app.post('/upload', routes.upload);
 app.post('/uploadSuccess', routes.uploadSuccess);
 
 app.post('/login', function(req, res){
+	Pic.find({srcUser: req.session.username}, function(err, pics){
+			console.log("Pictures for this user: " + pics);
+	});
 	var username = req.body.username;
 	var password = req.body.password;
 	//Search the Database for a User with the given username
@@ -139,7 +158,9 @@ app.post('/logout', function(req, res){
 
 app.post('/uploadFile', function(req, res){
 	console.log(req.files);
-	var newPic;
+	console.log(req.session);
+	var newPic
+	  , newAlbum;
 	
 	//latestUpload = req.files.uploadedFile.name;
 	// get temporary location of file
@@ -150,9 +171,20 @@ app.post('/uploadFile', function(req, res){
 	// move the file from the temporary location to the intended location
 	fs.rename(tmp_path, target_path, function(err) {
 		if (err) throw err;
+		
+		// create new picture document
 		newPic = new Pic({
 			filename: req.files.uploadedFile.name,
-			path: './uploads/' + req.files.uploadedFile.name
+			path: './uploads/' + req.files.uploadedFile.name,
+			srcUser: req.session.username
+		});
+		
+		// add the new picture to our user's 'uploads' album		
+		User.find({username: req.session.username}, function(err, users){
+			var user = users[0];
+			console.log("\nuser object from upload file: " + user);
+			user.uploads.push(newPic);
+			console.log("user object from upload file: " + user);
 		});
 		
 		newPic.save(function(err, newPic){
@@ -195,7 +227,8 @@ app.post('/registerSubmit', function(req, res) {
 		//create a new instance of the mongoose User model we defined above
 		var newUser = new User({
 			username: username,
-			password: hash
+			password: hash,
+			uploads: []
 		});	
 		
 		//save() is a magic function from mongoose that saves this user to our DB
