@@ -59,12 +59,20 @@ exports.register = function(req, res){
 };
 
 
-/* viewer */
+/* viewer (carousel) */
 exports.viewer = function(req, res){
 	res.render('viewer', {
 		title: preTitle + 'View Album'
 	});
 };
+
+/* new viewer (lightbox) */
+exports.viewer2 = function(req, res){
+	res.render('viewer2', {
+		title: preTitle + 'View Album'
+	});
+};
+
 
 
 

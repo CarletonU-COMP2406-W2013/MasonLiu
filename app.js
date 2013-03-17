@@ -114,6 +114,7 @@ app.get('/register', routes.register);
 
 app.post('/', routes.index);
 app.post('/viewer', routes.viewer);
+app.post('/viewer2', routes.viewer2);
 app.post('/home', routes.home);
 // app.post('/myAccount', routes.myacct);  *** NO LONGER IN USE ***
 app.post('/register', routes.register);
