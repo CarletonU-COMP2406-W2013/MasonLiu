@@ -34,6 +34,14 @@ exports.upload = function(req, res){
 	});
 };
 
+/* show all this users uploads */
+exports.myUploads = function(req, res, imgArray){
+	res.render('myUploads', {
+		title: preTitle + 'My Uploads',
+		uploads: imgArray
+	});
+};
+
 /* home page */
 exports.home = function(req, res, imgPath){
 	console.log('imgPath (from routes/index.js): ' + imgPath);
@@ -67,9 +75,10 @@ exports.viewer = function(req, res){
 };
 
 /* new viewer (lightbox) */
-exports.viewer2 = function(req, res){
+exports.viewer2 = function(req, res, imgArray){
 	res.render('viewer2', {
-		title: preTitle + 'View Album'
+		title: preTitle + 'View Album',
+		array: imgArray
 	});
 };
 
