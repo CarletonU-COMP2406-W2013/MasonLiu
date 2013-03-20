@@ -1,7 +1,6 @@
 extends layout
 
 block content
-	body
 	script(src="javascripts/homeBtn.js")
 	div.container-narrow
 		h3 Welcome home!
@@ -9,10 +8,11 @@ block content
 				form.span3(action="#", method="post")
 					div.btn-group.btn-group-vertical.center-element
 						button#homeBtnUpload.btn.span2(type="button") Upload a picture!
+						button#homeBtnMyUploads.btn.span2(type="button") My Uploads
 						button#homeBtnLogout.btn.span2(type="button") Log out
-						button#homeBtnViewer.btn.span2(type="button") Viewer
-						button#homeBtnViewer2.btn.span2(type="button") Viewer2
+						//button#homeBtnViewer.btn.span2(type="button") Viewer
+						//button#homeBtnViewer2.btn.span2(type="button") Viewer2
 				div#home-img-container
 					label
 						strong Your most recent upload:
-					img.img-polaroid(src="#{path}")
+					img.img-polaroid#home-img(src="#{path}")

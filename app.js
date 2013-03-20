@@ -114,14 +114,23 @@ app.get('/register', routes.register);
 
 app.post('/', routes.index);
 app.post('/viewer', routes.viewer);
-app.post('/viewer2', routes.viewer2);
+app.post('/viewer2', function(req, res){
+	Pic.find({srcUser: req.session.username}, function(err, pics){
+		routes.viewer2(req, res, pics);
+	});
+});
 app.post('/home', routes.home);
 // app.post('/myAccount', routes.myacct);  *** NO LONGER IN USE ***
 app.post('/register', routes.register);
+app.post('/myUploads', function(req, res){
+	Pic.find({srcUser: req.session.username}, function(err, pics){
+		routes.myUploads(req, res, pics);
+	});
+});
 app.post('/upload', routes.upload);
 app.post('/uploadSuccess', routes.uploadSuccess);
-
 app.post('/login', function(req, res){
+	//Pic.remove({}, function(){});
 	Pic.find({srcUser: req.session.username}, function(err, pics){
 			console.log("Pictures for this user: " + pics);
 	});
