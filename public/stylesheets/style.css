@@ -19,10 +19,27 @@ a {
 #registerFormContainer {
   padding-top: 100px;
 }
+.thumb {
+  margin: 10px;
+  max-height: 100px;
+  max-width: 100px;
+}
+.viewer-sized {
+  max-height: 500px;
+  min-height: 500px;
+}
 #home-img-container {
   max-height: 400px;
   max-width: 400px;
   float: right;
+}
+#home-img {
+  max-height: 400px;
+  max-width: 400px;
+}
+#upload-succ-img {
+  max-height: 600px;
+  max-width: 800px;
 }
 #viewer-horizon {
   color: #fff;
