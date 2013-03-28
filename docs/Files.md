@@ -4,13 +4,15 @@ Files
 / (main directory):
 
 app.js - main application start point
-db.js - interface for database; used to store user account information and picture metadata
+db.js 	- interface for database
+		used to store user account information and picture metadata
 
 /public/javascripts/ :
 
-catBtn.js - map the buttons to different pages via JQuery functions
-homeBtn.js - map the buttons to different pages via JQuery functions
-lightbox.js - (Part of Lightbox2 package) modified the image and viewer to resize to different maximum width/height values
+catBtn.js 	- 	map the buttons to different pages via JQuery functions
+homeBtn.js 	- 	map the buttons to different pages via JQuery functions
+lightbox.js - 	(Part of Lightbox2 package) modified the image and viewer to resize to different
+				maximum width/height values
 	
 /public/stylesheets/:
 
