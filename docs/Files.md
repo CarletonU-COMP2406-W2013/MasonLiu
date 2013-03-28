@@ -20,7 +20,8 @@ style.styl - Main css for all pages
 lightbox.css - (Part of Lightbox2 package) modified the image viewer to have different maximum width/height values
 	
 /public/uploads/:
-	<user uploaded image files go here>
+
+	(user uploaded image files go here)
 	
 /routes:
 	index.js - page routing
