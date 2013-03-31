@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	- if (loggedin)
+		include navUser
+	- else
+		include navPublic
+	
+	//- include lightbox stuff	
+	script(src="javascripts/lightbox.js")
+	link(href="stylesheets/lightbox.css", rel="stylesheet")
+	
+	script(src="javascripts/comment.js")
+	link(href="stylesheets/catViewer.css", rel="stylesheet")
+	
+	//- modal window to show/submit comments	
+	#commentModal.modal.hide.fade(tabindex="-1", role="dialog", aria-labelledby="modalLabel", aria-hidden="true")
+				.modal-header
+					button.close(type="button", data-dismiss="modal", aria-hidden="true") X
+					h3#modalLabel Comments
+				form(action="/addComment", method="post")
+					.modal-body
+						label SomeUser123
+						p.well.comment-container Great pic!
+						label Write a comment:
+						textarea#comment-input(name="comment", rows=2)
+					.modal-footer
+						button.btn(type="submit") Submit Comment
+						button.btn(data-dismiss="modal", aria-hidden="true") Close					
+					
+	.container-narrow
+		.row
+			h2.hdr-line #{name}
+		- each pic, i in images
+			.thumb-div
+				a(href="#{pic.path}", rel="lightbox[album]", title="#{pic.caption}")
+					img.img-polaroid.thumb(src="#{pic.path}")
+				- if (loggedin)
+					form.comment-btn-form(id="form1", action="/comment", method="post") 
+						button.comment-btn.btn.btn-small(id=i, type="button", value="#{i}")
+							i.icon-pencil

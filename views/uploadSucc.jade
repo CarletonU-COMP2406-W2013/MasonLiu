@@ -1,7 +1,12 @@
 extends layout
 
 block content
-	div.container-narrow
-		h4 Your picture was successfully uploaded!
-		div.well.well-small.center-element
-			img.img-polaroid#upload-succ-img(src="#{file}")
+	include navUser
+	link(href="stylesheets/uploadSucc.css", rel="stylesheet")
+	
+	.container-narrow
+		h3 Your picture was successfully uploaded!
+		.center-element
+			h4#upload-conf-cap Caption: "#{caption}"
+		#upload-conf-well.well.well-small.center-element
+			img.img-polaroid#upload-conf-img(src="#{file}")

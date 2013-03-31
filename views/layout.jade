@@ -3,30 +3,20 @@ html
 	head
 		title= title
 		meta(charset="UTF-8")
+		
 		script(src="libs/jquery/jquery.min.js")
-		script(src="/libs/jquery-validate/jquery-validate.min.js")
+		script(src="javascripts/jquery-1.7.2.min.js")
+		script(src="libs/jquery-validate/jquery-validate.min.js")
 		script(src="libs/bootstrap/js/bootstrap.min.js")
-		script(src="/libs/jquery-ui/js/jquery-ui-1.10.0.custom.min.js")
+		script(src="libs/jasny-bootstrap/js/jasny-bootstrap.min.js")
 		script(src="javascripts/index.js")
-		link(rel="stylesheet", type="text/css",
-			href="libs/bootstrap/css/bootstrap.min.css")
-		link(rel="stylesheet", type="text/css",
-			href="libs/bootstrap/css/bootstrap-responsive.min.css")
-		link(rel="stylesheet", type="text/css",
-			href="libs/jquery-ui/css/ui-lightness/jquery-ui-1.10.0.custom.min.css")
-		link(rel="stylesheet", type="text/css",
-			href="stylesheets/style.css")
+		
+		link(rel="stylesheet", type="text/css", href="libs/bootstrap/css/bootstrap.min.css")
+		link(rel="stylesheet", type="text/css",	href="libs/bootstrap/css/bootstrap-responsive.min.css")
+		link(rel="stylesheet", type="text/css",	href="libs/jasny-bootstrap/css/jasny-bootstrap.min.css")
+		link(rel="stylesheet", type="text/css",	href="libs/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css")
+		link(rel="stylesheet", type="text/css",	href="libs/jquery-ui/css/ui-lightness/jquery-ui-1.10.0.custom.min.css")
+		link(rel="stylesheet", type="text/css",	href="stylesheets/style.css")
+		
 	body
-		div.navbar.navbar-fixed-top
-			div.navbar-inner
-				div.container
-					a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.brand(href="/") PictureHub
-					//div.nav-collapse
-						ul.nav.pull-right
-							li.active
-								a(href="/home") Home
 		block content
