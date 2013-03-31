@@ -1,0 +1,13 @@
+/*** home.jade ***/
+#home-well {
+  height: 350px;
+  width: 900px;
+}
+#home-cat-btn {
+  float: left;
+}
+#home-img {
+  max-height: 300px;
+  max-width: 400px;
+  float: right;
+}

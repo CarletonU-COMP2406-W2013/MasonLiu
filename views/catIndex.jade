@@ -1,0 +1,57 @@
+extends layout
+
+block content
+	- if (loggedin)
+		include navUser
+	- else
+		include navPublic
+		
+	script(src="javascripts/catBtn.js")
+	link(href="stylesheets/catIndex.css", rel="stylesheet")
+	
+	.container-narrow
+		h3 Categories
+			.well#cat-index-well
+				form(action="#", method="get")
+					.cat-index-outer-container
+						button#catBtnFunny.cat-index-btn.btn(type="button") Funny
+						.cat-index-thumb-container
+							label
+								strong Most recent:
+							- each pic in funny
+								img.img-rounded.cat-index-img(src="#{pic.path}")
+					.cat-index-outer-container
+						button#catBtnSports.cat-index-btn.btn(type="button") Sports
+						.cat-index-thumb-container
+							label
+								strong Most recent:
+							- each pic in sports
+								img.img-rounded.cat-index-img(src="#{pic.path}")
+					.cat-index-outer-container
+						button#catBtnNature.cat-index-btn.btn(type="button") Nature
+						.cat-index-thumb-container
+							label
+								strong Most recent:
+							- each pic in nature
+								img.img-rounded.cat-index-img(src="#{pic.path}")
+					.cat-index-outer-container
+						button#catBtnPeople.cat-index-btn.btn(type="button") People
+						.cat-index-thumb-container
+							label
+								strong Most recent:
+							- each pic in people
+								img.img-rounded.cat-index-img(src="#{pic.path}")
+					.cat-index-outer-container
+						button#catBtnArt.cat-index-btn.btn(type="button") Art
+						.cat-index-thumb-container
+							label
+								strong Most recent:
+							- each pic in art
+								img.img-rounded.cat-index-img(src="#{pic.path}")
+					.cat-index-outer-container
+						button#catBtnMisc.cat-index-btn.btn(type="button") Miscellaneous
+						.cat-index-thumb-container
+							label
+								strong Most recent:
+							- each pic in misc
+								img.img-rounded.cat-index-img(src="#{pic.path}")

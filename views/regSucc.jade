@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	include navPublic
+	
+	.container-narrow
+		h4 User "#{username}" was successfully registered!
+		br
+		form(action="/", method="get")
+			button.btn.center-element(type="submit") Return to login page
