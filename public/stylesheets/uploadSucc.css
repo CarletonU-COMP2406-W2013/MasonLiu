@@ -1,0 +1,19 @@
+/*** uploadSucc.jade ***/
+.hdr-line {
+  display: inline;
+}
+#upload-conf-well {
+  clear: both;
+}
+#upload-conf-cap {
+  display: inline;
+  float: left;
+}
+#upload-conf-img {
+  max-height: 600px;
+  max-width: 800px;
+}
+#caption-textarea {
+  margin: 20px;
+  display: inline;
+}

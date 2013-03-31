@@ -1,36 +1,41 @@
 extends layout
 
 block content
-	div.container-narrow
+	include navPublic
+	link(href="stylesheets/register.css", rel="stylesheet")
+	script(src="javascripts/regValidate.js")
+	.container-narrow
 		- if(error)
-			div.alert.alert-error 
+			.alert.alert-error 
 				strong #{error}
 		h3.pull-left Make an account. Upload cool pictures. It's as simple as that.
-		div#registerFormContainer.offset1
-			form.form-horizontal(action="/registerSubmit", method="post")
-				div.control-group
+		#registerFormContainer.offset1
+			form#registerForm.form-horizontal(action="/registerSubmit", method="post")
+				.control-group
 					label.control-label(for="inputUsername") Select a Username
-					div.controls
+					.controls
 						input#inputUsername(name="username", type="text", placeholder="Username")
-				div.control-group
+				.control-group
 					label.control-label(for="inputPassword") Select a Password (min. 6 characters)
-					div.controls
+					.controls
 						input#inputPassword(name="password", type="password", placeholder="Password")
-				div.control-group
+				.control-group
 					label.control-label(for="inputPassConf") Confirm your Password
-					div.controls
+					.controls
 						input#inputPassConf(name="passconf", type="password", placeholder="Password again")
-				div.control-group
+				.control-group
 					label.control-label What are your favourite categories? (this step is optional; you can always choose later)
-					div.controls
+					.controls
 						label.checkbox Funny
-							input(type="checkbox")
+							input(type="checkbox", name="catBoxFunny")
 						label.checkbox Sports
-							input(type="checkbox")
+							input(type="checkbox", name="catBoxSports")
 						label.checkbox Nature
-							input(type="checkbox")
+							input(type="checkbox", name="catBoxNature")
 						label.checkbox People
-							input(type="checkbox")
+							input(type="checkbox", name="catBoxPeople")
 						label.checkbox Art
-							input(type="checkbox")
+							input(type="checkbox", name="catBoxArt")
+						label.checkbox Misc
+							input(type="checkbox", name="catBoxMisc")
 				button.btn.offset1(type="submit") Submit

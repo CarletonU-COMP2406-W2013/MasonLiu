@@ -1,26 +1,43 @@
 extends layout
 
 block content
-	div.container-narrow
+	include navUser
+	link(href="stylesheets/upload.css", rel="stylesheet")
+	
+	.container-narrow		
+		- if(error)
+			.alert.alert-error 
+				strong #{error}
 		h3 Upload a picture
-		
-		div#uploadFormContainer.offset1
-			form.form-horizontal(action="/uploadFile", method="post", enctype="multipart/form-data")
-				div.control-group
-					label.control-label Which categories should this picture be in?
-					div.controls
-						label.checkbox Funny
-							input(type="checkbox")
-						label.checkbox Sports
-							input(type="checkbox")
-						label.checkbox Nature
-							input(type="checkbox")
-						label.checkbox People
-							input(type="checkbox")
-						label.checkbox Art
-							input(type="checkbox")
-				input#lefile(type="file", name="uploadedFile", style="display:none")
-				div.input-append
-					input#photoCover.input-large(type="text")
-					a.btn(onclick="$('input[id=lefile]').click();") Browse
-				button.btn.offset1(type="submit") Submit
+		form(action="/uploadFile", method="post", enctype="multipart/form-data")
+				.span3
+					.fileupload.fileupload-new(data-provides="fileupload")
+						.input-append
+							.control-group
+							label.control-label Which categories should this picture be in?
+								.controls
+									label.checkbox Funny
+										input(type="checkbox", name="catBoxFunny")
+									label.checkbox Sports
+										input(type="checkbox", name="catBoxSports")
+									label.checkbox Nature
+										input(type="checkbox", name="catBoxNature")
+									label.checkbox People
+										input(type="checkbox", name="catBoxPeople")
+									label.checkbox Art
+										input(type="checkbox", name="catBoxArt")
+									label.checkbox Misc
+										input(type="checkbox", name="catBoxMisc")
+							.uneditable-input.span3
+								i.icon-file.fileupload-exists
+								span.fileupload-preview
+							span.btn.btn-file
+								span.fileupload-new Select file
+								span.fileupload-exists Change
+								input(type="file", name="uploadedFile")
+							a.btn.fileupload-exists(href="#", data-dismiss="fileupload") Remove
+				.span3.offset1
+					label.control-label Write a caption for this picture:
+					textarea#caption-textarea(name="caption", rows=5)
+				.span1.offset4
+					button.btn(type="submit") Submit
