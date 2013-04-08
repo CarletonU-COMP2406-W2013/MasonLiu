@@ -36,8 +36,13 @@ Licensed under the Apache License v2.0.
 
 *mongoose*
 
-High-level interface for mongodb, allowing for the definition of schemas "User" and "Picture."
+High-level interface for mongodb, allowing for the definition of schemas "User," "Comment," and "Pic"
 View license [here](https://github.com/LearnBoost/mongoose/blob/master/README.md).
+
+*async*
+
+Module to facilitate asynchronous control flow. Used particularily for parallel database requests.
+View license [here](https://github.com/caolan/async/blob/master/LICENSE).
 
 	
 **Other Packages**

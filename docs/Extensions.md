@@ -1,6 +1,13 @@
 Extensions
 ==========
 
+We had planned to support commenting on pictures, with registered users being able to view comments for an individual picture and add
+their own. This would be done by having a button attatched to each picture that would either open a dialog with the comment thread, or
+link to a seperate page displaying the picture and comments. The comment would be submitted via an ajax request, and added to a Comment
+(mongoose) document associated with the User that submitted it. However, there were difficulties implementing this feature, so all the
+application logic for it has been removed. The comment buttons have been left on the cateogry viewer page to indicate how they would 
+normally appear.
+
 PictureHub was originally designed as a quick and easy image sharing application. However, it could be developed 
 into more of a community, by implementing features such as messaging between users, user-defined categories (public or 
 private, e.g. "invite-only" categories), and category-specific message boards, allowing users with similar interests 
