@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	- if (loggedin)
+		include navUser
+	- else
+		include navPublic
+	
+	.container-narrow
+		h2 DERP!
+		h4 It looks like an error occured. Try navigating back to the home page, or restarting your session.

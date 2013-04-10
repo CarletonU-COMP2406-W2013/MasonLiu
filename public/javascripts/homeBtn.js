@@ -1,27 +1,16 @@
-$(function(){
-	$("#homeBtnUpload").on("click",function(){
-		var $form = $("form");
-		$form.attr("action","/upload");
-		$form.submit();
+
+(function($,W,D) {
+
+	$(function(){
+		var $form = $("#track-form");
+		$("#trackUser").on("click",function(){		
+			$form.attr("action","/trackUser");
+			$form.submit();
+		});
+		$("#trackCat").on("click",function(){
+			$form.attr("action","/trackCat");
+			$form.submit();
+		});
 	});
-	$("#homeBtnMyUploads").on("click",function(){
-		var $form = $("form");
-		$form.attr("action","/myUploads");
-		$form.submit();
-	});
-	$("#homeBtnLogout").on("click",function(){
-		var $form = $("form");
-		$form.attr("action","/logout");
-		$form.submit();
-	});
-	$("#homeBtnViewer").on("click",function(){
-		var $form = $("form");
-		$form.attr("action","/viewer");
-		$form.submit();
-	});
-	$("#homeBtnViewer2").on("click",function(){
-		var $form = $("form");
-		$form.attr("action","/viewer2");
-		$form.submit();
-	});
-});
+
+})(jQuery, window, document);
