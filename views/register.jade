@@ -4,6 +4,7 @@ block content
 	include navPublic
 	link(href="stylesheets/register.css", rel="stylesheet")
 	script(src="javascripts/regValidate.js")
+	
 	.container-narrow
 		- if(error)
 			.alert.alert-error 
@@ -12,9 +13,9 @@ block content
 		#registerFormContainer.offset1
 			form#registerForm.form-horizontal(action="/registerSubmit", method="post")
 				.control-group
-					label.control-label(for="inputUsername") Select a Username
+					label.control-label(for="inputUsername") Select a Username (min. 6 characters)
 					.controls
-						input#inputUsername(name="username", type="text", placeholder="Username")
+						input#inputUsername.required(name="username", type="text", placeholder="Username")
 				.control-group
 					label.control-label(for="inputPassword") Select a Password (min. 6 characters)
 					.controls
@@ -38,4 +39,4 @@ block content
 							input(type="checkbox", name="catBoxArt")
 						label.checkbox Misc
 							input(type="checkbox", name="catBoxMisc")
-				button.btn.offset1(type="submit") Submit
+				button.btn.offset1.submit(type="submit") Submit

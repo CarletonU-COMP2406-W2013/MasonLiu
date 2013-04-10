@@ -1,61 +1,53 @@
-$.validator.setDefaults({
-	submitHandler: function() { alert("submitted!"); }
-});
 
-$().ready(function() {	
-	//$("#registerForm").validate();
-
-	// validate signup form on keyup and submit
+(function($,W,D) {
 	
-	$("#registerForm").validate({
-		rules: {
-			username: {
-				required: true,
-				minlength: 2
-			},
-			password: {
-				required: true,
-				minlength: 6
-			},
-			passconf: {
-				required: true,
-				minlength: 6,
-				equalTo: "#password"
-			}
-		},
-		messages: {
-			username: {
-				required: "Please enter a username",
-				minlength: "Your username must consist of at least 2 characters"
-			},
-			password: {
-				required: "Please provide a password",
-				minlength: "Your password must be at least 6 characters long"
-			},
-			passconf: {
-				required: "Please provide a password",
-				minlength: "Your password must be at least 5 ch6racters long",
-			}
-	});
-	/*
-	// propose username by combining first- and lastname
-	$("#username").focus(function() {
-		var firstname = $("#firstname").val();
-		var lastname = $("#lastname").val();
-		if(firstname && lastname && !this.value) {
-			this.value = firstname + "." + lastname;
-		}
-	});
+	var page = {};
+	
+	page.util = {
+		setupFormValidation: function() {
+			// form validation rules
+			$("#registerForm").validate({
+				 onfocusout: function(element) {
+					$(element).valid();
+				},
+				rules: {
+					username: {
+						required: true,
+						minlength: 6
+					},
+					password: {
+						required: true,
+						minlength: 6
+					},
+					passconf: {
+						required: true,
+						minlength: 6
+					}
+				},
+				messages: {
+					username: {
+						required: "Please enter a username",
+						minlength: "Your username must be at least 6 characters"
+					},
+					password: {
+						required: "Please enter a password",
+						minlength: "Your password must be at least 6 characters"
+					},
+					passconf: {
+						required: "Please confirm your password",
+						minlength: "Your password must be at least 6 characters"
+					}
+				},
+				submitHandler: function(form) {
+					form.submit();
+				}
+			});
+		}		
+	}
+	
+	 // when the dom has loaded setup form validation rules
+    $(D).ready(function($) {
+        page.util.setupFormValidation();
+    });	
 
-	//code to hide topic selection, disable for demo
-	var newsletter = $("#newsletter");
-	// newsletter topics are optional, hide at first
-	var inital = newsletter.is(":checked");
-	var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
-	var topicInputs = topics.find("input").attr("disabled", !inital);
-	// show when newsletter is checked
-	newsletter.click(function() {
-		topics[this.checked ? "removeClass" : "addClass"]("gray");
-		topicInputs.attr("disabled", !this.checked);
-	});*/
-});
+})(jQuery, window, document);
