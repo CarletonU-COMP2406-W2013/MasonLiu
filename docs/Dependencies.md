@@ -36,7 +36,7 @@ Licensed under the Apache License v2.0.
 
 *mongoose*
 
-High-level interface for mongodb, allowing for the definition of schemas "User" and "Pic"
+High-level interface for mongodb, allowing for the definition of schemas "User" and "Pic".
 View license [here](https://github.com/LearnBoost/mongoose/blob/master/README.md).
 
 *async*
