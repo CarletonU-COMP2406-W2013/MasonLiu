@@ -13,7 +13,7 @@ into more of a community, by implementing features such as messaging between use
 private, e.g. "invite-only" categories), and category-specific message boards, allowing users with similar interests 
 more ways to interact with each other. This could be done by defining additional document schemas for messages between
 users and message board posts, modifying the User schema to accomodate messages sent/received, adding the message boards
-themselves (simply a comment thread index) to category pages, and adding a form for custom category creation (the storage
+themselves (simply a comment thread index) to category pages, and adding a form for custom category creation (the implementation
 of categories would have to be redesigned, as the routing for each category is hard-coded).
 
 As it is now, the application allows any registered user to add pictures to any category. If a user decides to include in a category
