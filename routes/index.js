@@ -1,14 +1,12 @@
-var mongoose = require('mongoose')
-  //, db = require('../db')
-  //, session = require('../session')
-  //, bcrypt = require("bcrypt-nodejs")
-  , fs = require('fs');
   
 var preTitle = "PictureHub - ";
 
 /* front page */
 exports.index = function(req, res){
-  res.render('index', { title: preTitle + 'Log In', error: req.query.error });
+	res.render('index', {
+		title: preTitle + 'Log In',
+		error: req.query.error
+	});
 };
 
 /* register form */
@@ -28,12 +26,15 @@ exports.registerSuccess = function(req, res, user){
 };
 
 /* home page */
-exports.home = function(req, res, imgPath){
-	console.log('imgPath (from routes/index.js): ' + imgPath);
+exports.home = function(req, res, upload, recentPics, userPics){
 	res.render('home', {
 		title: preTitle + 'Home',
-		path: imgPath,
-		error: req.query.error
+		user: req.session.username,
+		upl: upload,
+		recent: recentPics,
+		userRecent: userPics,
+		msg: req.query.msg,
+		error: req.query.error	
 	});
 };
 
@@ -71,7 +72,7 @@ exports.catIndex = function(req, res, recentPics){ //recentPics
 	});
 };
 
-/* gallery page - contains thumbs, viewer */
+/* gallery page - contains thumbnails, viewer */
 exports.catViewer = function(req, res, catName, imgArray){
 	res.render('catViewer', {
 		title: preTitle + " " + catName,
@@ -87,5 +88,13 @@ exports.comments = function(req, res, picture){
 	res.render('comments', {
 		title: preTitle + " Comments for " + picture.path,
 		pic: picture
+	});
+};
+
+/* general error page */
+exports.error = function(req, res){
+	res.render('error', {
+		title: preTitle + " Error ",
+		loggedin: req.session.username
 	});
 };

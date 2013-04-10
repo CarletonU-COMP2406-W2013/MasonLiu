@@ -3,10 +3,61 @@ extends layout
 block content
 	link(href="stylesheets/home.css", rel="stylesheet")
 	include navUser
+	script(src="javascripts/homeBtn.js")
+	
 	.container-narrow
-		h3 Welcome home!
-			#home-well.well
-				#home-img
-					label
-						strong Your most recent upload:
-					img#home-img.img-polaroid(src="#{path}")
+		- if (msg)
+			.alert.alert-success 
+				strong #{msg}
+		- else if (error)
+			.alert.alert-error 
+				strong #{error}		
+		h1#home-hdr Welcome home, #{user}!
+		#home-well.well				
+			#upl-img-frame
+				label Your most recent upload:
+				- if (upl)
+					img#upl-img.img-polaroid.center-element(src="#{upl.path}")
+					label#upl-caption
+						strong #{upl.caption}
+				- else
+					label You haven't uploaded anything yet!
+			form#track-form(action="#", method="post")
+				.control-group
+					label.track-form-lbl
+						Strong Enter a user who you would like to track:
+					.input-append	
+						input#track-form-input-user(type="text", name="user", placeholder="Enter a username...")
+						button#trackUser.track-form-btn.btn(type="button") Track User
+					br
+					label.track-form-lbl
+						strong Or, track a new category:
+					.input-append
+						input#track-form-input-cat(type="text", name="cat", placeholder="Enter a category...")
+						button#trackCat.track-form-btn.btn(type="button") Track Category
+			
+			#tracked-container
+				h3.home-subhdr Latest Uploads to Tracked Categories:
+				- each val, key in recent
+					- if (val)
+						.tracked-cat-frame.center-element
+							label.tracked-label From 
+								strong #{key}:
+							img.tracked-img.img-polaroid(src="#{val.path}")
+							label.tracked-cat-caption
+								- if (val.caption)
+									" #{val.caption} "
+								- else
+									< No caption >
+				h3.home-subhdr Latest Uploads by Tracked Users:
+				- each val, key in userRecent
+					- if (val)
+						.tracked-user-frame.center-element
+							label.tracked-label From user 
+								strong #{key}:
+							img.tracked-img.img-polaroid(src="#{val.path}")
+							label.tracked-user-caption
+								- if (val.caption)
+									" #{val.caption} "
+								- else
+									< No caption >
