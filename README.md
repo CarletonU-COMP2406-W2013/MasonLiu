@@ -19,13 +19,16 @@ an account with the application. Users can upload pictures of any image format, 
 caption. Registered users can "track" their favourite categories, which will update the user's home page with the most recent uploads in
 those categories. Similarily, users can also track other users, seeing their most recent uploads.
 
+
 **How to run**
 
 - Install node.js
 - Install MongoDB
-- For each node.js module, enter "npm install <module name>" into a terminal
+- Download application as .zip file, extract files to preferred destination
+- Open a terminal, navigate to the application directory, and enter "npm install" to install the node modules
 - Start the MongoDB server
-- In the main directory, enter "node app.js"
+- Enter "node app.js" in the application directory to start the server
+- Open a browser and connect to port 3000 on localhost to use the application
 
 
 **Dependencies**
